@@ -5,6 +5,8 @@ const API = {
       res = await fetch("/api/workouts");
     } catch (err) {
       console.log(err)
+      // catch this and just log without blowing up?  No.  I'm rethrowing
+      throw err;
     }
     const json = await res.json();
 
