@@ -54,34 +54,42 @@ function validateInputs() {
 
   if (workoutType === "resistance") {
     if (nameInput.value.trim() === "") {
+      console.log("name is empty")
       isValid = false;
     }
 
     if (weightInput.value.trim() === "") {
+      console.log("weight is empty")
       isValid = false;
     }
 
     if (setsInput.value.trim() === "") {
+      console.log("sets is empty")
       isValid = false;
     }
 
     if (repsInput.value.trim() === "") {
+      console.log("reps is empty")
       isValid = false;
     }
 
     if (resistanceDurationInput.value.trim() === "") {
+      console.log("resistance duration is empty")
       isValid = false;
     }
   } else if (workoutType === "cardio") {
     if (cardioNameInput.value.trim() === "") {
+      console.log("cardio name is empty")
       isValid = false;
     }
 
     if (durationInput.value.trim() === "") {
+      console.log("duration is empty")
       isValid = false;
     }
 
     if (distanceInput.value.trim() === "") {
+      console.log("distance is empty")
       isValid = false;
     }
   }

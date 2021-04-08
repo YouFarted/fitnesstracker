@@ -19,7 +19,8 @@ let db = require("./models");
 
 const express = require("express");
 
-const apiRoutes = require("./routes/api-routes.js")
+const apiRoutes = require("./routes/api-routes")
+const htmlRoutes = require("./routes/html-routes")
 
 
 
@@ -34,11 +35,15 @@ console.log(`PORT is set to ${PORT}`);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
+app.use(apiRoutes);
+app.use(htmlRoutes);
+
 app.use(express.static("public"));
 
 
 
-app.use(apiRoutes);
+
 
 
 asyncmain().then(x => {
