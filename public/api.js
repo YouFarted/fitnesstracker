@@ -15,6 +15,10 @@ const API = {
   async addExercise(data) {
     const id = location.search.split("=")[1];
 
+    if(!id) {
+      console.error("you're adding an exercise to a location without an id after the =.  That is, you're not on a valid workout page")
+    }
+
     const res = await fetch("/api/workouts/" + id, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
