@@ -12,7 +12,9 @@ router.get("/api/workouts", async function (req, res) {
 router.post("/api/workouts", async function (req, res) {
   // no interesting fields are posted to create a new workout.
 
+  console.log("about to create a workout");
   const newWorkout = await db.Workout.create({});
+  console.log("done creating a workout: ", newWorkout);
   res.json(newWorkout);
 });
 
@@ -73,24 +75,6 @@ router.put("/api/workouts/:id", async function (req, res) {
   } catch (ex) {
     console.log("ex:", ex);
   }
-});
-
-router.post("/api/todos", function (req, res) {
-  orm.addTodo(req.body, function (results) {
-    res.json(results);
-  });
-});
-
-router.delete("/api/todos/:id", function (req, res) {
-  orm.deleteTodo(req.params.id, function (results) {
-    res.json(results);
-  });
-});
-
-router.put("/api/todos", function (req, res) {
-  orm.editTodo(req.body, function (results) {
-    res.json(results);
-  });
 });
 
 module.exports = router;

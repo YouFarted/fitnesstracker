@@ -1,9 +1,11 @@
 "use strict"
 
+require('dotenv').config();
 let mongoose = require("mongoose");
 
+const mongoDbUri = process.env.MONGODB_URI || "mongodb://localhost/workout";
 
-const mongoDbUri = process.env.MONGODB_URI | "mongodb://localhost/workout";
+console.log("connecting to mongo using uri: ", mongoDbUri);
 
 mongoose.connect(mongoDbUri, {
     useNewUrlParser: true,
@@ -35,11 +37,6 @@ app.use(apiRoutes);
 app.use(htmlRoutes);
 
 app.use(express.static("public"));
-
-
-
-
-
 
 asyncmain().then(x => {
 }).catch(e => {
